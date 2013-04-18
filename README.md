@@ -21,7 +21,7 @@ Versions of software the skeleton uses:
 * jQuery 1.9
 * Backbone 0.9.10
 * Underscore 1.4.4
-* Twitter Bootstrap 2.2.2
+* Twitter Bootstrap 2.3.1
 * MarionetteJS 1.0.0-rc4
 
 # Legal stuff (MIT License)
