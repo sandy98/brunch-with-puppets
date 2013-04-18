@@ -18,11 +18,11 @@ Main languages are [CoffeeScript](http://coffeescript.org/),
 ## Dependencies
 Versions of software the skeleton uses:
 
-* jQuery 1.9
-* Backbone 0.9.10
+* jQuery 1.9.1
+* Backbone 1.0.0
 * Underscore 1.4.4
 * Twitter Bootstrap 2.3.1
-* MarionetteJS 1.0.0-rc4
+* MarionetteJS 1.0.2
 
 # Legal stuff (MIT License)
 Template is Copyright (c) 2013 Domingo Ernesto Savoretti.  We assume no rights or liablities for the code contained.  
