@@ -18,6 +18,7 @@ Main languages are [CoffeeScript](http://coffeescript.org/),
 ## Dependencies
 Versions of software the skeleton uses:
 
+* moment.js 2.0.0
 * jQuery 1.9.1
 * Backbone 1.0.0
 * Underscore 1.4.4
