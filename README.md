@@ -11,7 +11,7 @@ Main languages are [CoffeeScript](http://coffeescript.org/),
 
 ## Getting started
 * Create new project via executing `brunch new <project name> --skeleton https://github.com/sandy98/brunch-with-puppets.git` option for the command.
-* Build the project with `brunch b` or `brunch w` eventually adding `-s` in the latter case.
+* Build the project with `brunch b` or `brunch w` eventually adding `-s` in the latter case. Same thing can be accomplished by `npm start`
 * Point your browser to `http://localhost:3333` or whatever port you chose by means of -p option.
 * Turn the foundations to a complete building by enhancing and modifying the code at your heart's content.
 
