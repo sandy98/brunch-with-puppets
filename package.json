@@ -1,16 +1,16 @@
 {
-  "author": "Simeon Bateman",
-  "name": "Brunch-With-Marionette",
-  "description": "MarionetteJS application template for Brunch.io",
+  "author": "Domingo Ernesto Savoretti",
+  "name": "Brunch-With-Puppets",
+  "description": "MarionetteJS/Twitter BootStrap enhanced application template for Brunch.io",
   "version": "0.0.1",
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git@github.com/simbco/brunch-with-marionette"
+    "url": "git@github.com/sandy98/brunch-with-puppets"
   },
   "engines": {
     "node": "0.8.x",
-    "npm": "1.1.x"
+    "npm": "1.2.x"
   },
   "scripts": {
     "start": "brunch watch --server"
@@ -32,5 +32,5 @@
   "directories": {
     "test": "test"
   },
-  "license": "BSD"
+  "license": "MIT"
 }
