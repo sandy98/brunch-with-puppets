@@ -2,6 +2,8 @@
 A coffee skeleton for [Brunch](http://brunch.io/) which utilizes [MarionetteJS](http://marionettejs.com/), [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
 
 It's built on top of [Simeon Bateman's Brunch with Marionette](https://github.com/SimbCo/brunch-with-marionette) and as such draws heavily
+on that solid foundation, adding its bit of salt by means of enhanced main menu, including basis for user login, footer and some other goodies
+soon to be included.
 
 Main languages are [CoffeeScript](http://coffeescript.org/),
 [Stylus](http://learnboost.github.com/stylus/) and
