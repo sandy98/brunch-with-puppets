@@ -1,11 +1,10 @@
 require 'lib/view_helper'
 
-
 class Application extends Backbone.Marionette.Application
     initialize: =>
          
         @on("initialize:after", (options) =>
-            Backbone.history.start();
+            Backbone.history.start()
             # Freeze the object
             Object.freeze? this
         )
@@ -13,8 +12,11 @@ class Application extends Backbone.Marionette.Application
         @addInitializer( (options) =>
 
             AppLayout = require 'views/AppLayout'
+            MenuView = require 'views/MenuView'
             @layout = new AppLayout()
             @layout.render()
+            @menuView = new MenuView(vent: @vent)
+            @layout.menu.show @menuView
             
         )
 
