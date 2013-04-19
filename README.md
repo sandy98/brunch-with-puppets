@@ -1,4 +1,7 @@
 # Brunch with Puppets
+
+![image](http://sandy98.ods.org/img/puppets.jpg)
+
 A coffee skeleton for [Brunch](http://brunch.io/) which utilizes [MarionetteJS](http://marionettejs.com/), [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
 
 It's built on top of [Simeon Bateman's Brunch with Marionette](https://github.com/SimbCo/brunch-with-marionette) and as such draws heavily
