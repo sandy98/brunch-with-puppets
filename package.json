@@ -2,8 +2,8 @@
   "author": "Domingo Ernesto Savoretti",
   "name": "Brunch-With-Puppets",
   "description": "MarionetteJS/Twitter BootStrap enhanced application template for Brunch.io",
-  "version": "0.0.1",
-  "homepage": "",
+  "version": "0.0.2",
+  "homepage": "https://github.com/sandy98/brunch-with-puppets",
   "repository": {
     "type": "git",
     "url": "git@github.com/sandy98/brunch-with-puppets"
@@ -13,7 +13,7 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "start": "brunch watch --server"
+    "start": "brunch w -s -p 8000"
   },
   "dependencies": {
     "javascript-brunch": "> 1.0 < 1.3",
