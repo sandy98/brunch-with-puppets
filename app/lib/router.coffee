@@ -9,6 +9,7 @@ module.exports = class Router extends Backbone.Router
 	  '': 'home'
 	  'contents': 'contents'
 	  'about': 'about'
+	  'dologout': 'logout'
 
 	home: =>
 	  hv = new HomeView()
@@ -27,3 +28,6 @@ module.exports = class Router extends Backbone.Router
 	  application.vent.trigger 'navigation', href: "about"
 	  application.layout.content.show(av)
 		
+	logout: =>
+	  application.logout()
+	  @navigate application.menuView.currentRoute, trigger: true

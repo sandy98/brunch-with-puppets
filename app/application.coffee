@@ -3,18 +3,21 @@ require 'lib/view_helper'
 User = require 'models/user'
 
 class Application extends Backbone.Marionette.Application
+    logout: =>
+        @user.set username: '', fullname: '', pwd: ''
+        
     initialize: =>
         
         @user = new User
         
         @vent.on 'login', (user) =>
           console.log "login: #{user.get('username')}"
-          @user = @menuView.model = user
+          @user = user
           @layout.menu.show @menuView
           
-        @vent.on 'logout', =>
+        @vent.on 'logout',(user)  =>
           console.log 'logout'
-          @user = @menuView.model = new User
+          @user = user
           @layout.menu.show @menuView
          
         @on("initialize:after", (options) =>

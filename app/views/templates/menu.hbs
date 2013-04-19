@@ -13,14 +13,14 @@
         {{#if username}}
         <ul class="nav nav-pills pull-right">
             <li><a style="color: #00ccff;" href="#/users/{{ _id }}/edit">{{ fullname }}</a></li>
-            <li><a href="#/dologout">Sign out</a></li>
+            <li><a href="#dologout">Sign out</a></li>
         </ul>
         {{ else }}
         <ul class="nav pull-right">
-            <li><a href="#/users/new/signup">Sign up</a></li>
+            <li><a href="#users/new/signup">Sign up</a></li>
         </ul>
         <form class="navbar-form pull-right">
-            <input class="span2 nick-input" type="text" placeholder="username" required="required">
+            <input class="span2 username-input" type="text" placeholder="username" required="required">
             <input class="span2 pwd-input" type="password" placeholder="password" required="required">
             <button type="submit" class="btn btn-small">Sign in</button>
         </form>
