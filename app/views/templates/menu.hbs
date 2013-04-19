@@ -10,12 +10,12 @@
           <li><a href="#about">About</a></li>
         </ul>
 
-        <!--{[ if (nick && pwd) { ]}
+        {{#if username}}
         <ul class="nav nav-pills pull-right">
-            <li><a href="#/users/{{ _id }}/edit">{{ name }}</a></li>
+            <li><a style="color: #00ccff;" href="#/users/{{ _id }}/edit">{{ fullname }}</a></li>
             <li><a href="#/dologout">Sign out</a></li>
         </ul>
-        {[ } else { ]}-->
+        {{ else }}
         <ul class="nav pull-right">
             <li><a href="#/users/new/signup">Sign up</a></li>
         </ul>
@@ -24,7 +24,7 @@
             <input class="span2 pwd-input" type="password" placeholder="password" required="required">
             <button type="submit" class="btn btn-small">Sign in</button>
         </form>
-        <!--{[ } ]}-->
+        {{/if}}
         
       </div>
     </div>
