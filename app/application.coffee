@@ -9,6 +9,8 @@ class Application extends Backbone.Marionette.Application
         
     initialize: =>
 
+        GenericPopupView = require 'views/GenericPopupView'
+
         @dataSource = require './datasource'
 
         @user = new User
@@ -22,6 +24,13 @@ class Application extends Backbone.Marionette.Application
           console.log 'logout'
           @user = user
           @layout.menu.show @menuView
+          
+        @vent.on 'newuser', =>
+          #bootbox.alert "Time to sign up a new user..."
+          model = new Backbone.Model({title: 'New User', message: 'User sign up data goes here.'})
+          popupView = new GenericPopupView model: model
+          @layout.popup.show popupView
+          #$(@layout.popup.el).modal()
 
         @on("initialize:after", (options) =>
             Backbone.history.start()

@@ -1,4 +1,4 @@
 template = require 'views/templates/useritemview'
 
-module.exports = class UserItemViewView extends Backbone.Marionette.ItemView
+module.exports = class UserItemView extends Backbone.Marionette.ItemView
   template: template
