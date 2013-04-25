@@ -8,16 +8,16 @@ module.exports = class MenuView extends Backbone.Marionette.ItemView
 	  'submit': 'submit'
 	
 	submit: (ev) =>
+	  ev.preventDefault()
 	  return false unless @$('.username-input').val() and @$('.pwd-input').val()
 	  console.log 'submit user data'
-	  @setFakeUser username: @$('.username-input').val(), pwd: @$('pwd-input').val()
+	  @setFakeUser username: @$('.username-input').val(), pwd: @$('.pwd-input').val()
 	  false
 	
 	setFakeUser: (userdata) =>
 	   #To be overridden by a call to the server to get real data in a production app. 
-	   fakeFullNames = ['Maria Sol', 'Maria Celeste', 'Jorge Danilo']
-	   userdata.fullname = fakeFullNames[Math.floor(Math.random() * fakeFullNames.length)]
-	   @model.set userdata
+	   @options.dataSource.getUser userdata.username, userdata.pwd, (err, user) =>
+	      if user then @model.set user.toJSON() else bootbox.alert err
 	       
 	initialize: =>
 	  @on 'render', =>

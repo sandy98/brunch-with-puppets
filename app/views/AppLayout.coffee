@@ -8,4 +8,5 @@ module.exports = class AppLayout extends Backbone.Marionette.Layout
 		menu:    "#menu"
 		content: "#content"
 		footer: "#footer"
+		popup: "#popup"
 				
