@@ -26,10 +26,10 @@ module.exports = class UserItemView extends GenericPopupView
       return unless @$('#txt-username').val() and @$('#txt-fullname').val() and @$('#txt-email').val() and @$('#txt-pwd').val()
       @model.set username: @$('#txt-username').val(), fullname: @$('#txt-fullname').val(), email: @$('#txt-email').val(), pwd: @$('#txt-pwd').val() 
       if @options.mode is 'insert'
-        @options.dataSource.addUser @model, (err, newuser) =>
+        @options.dataSource.insertUser @model, (err, newuser) =>
           @options.vent.trigger 'login', newuser
       else if @options.mode is 'update'
-        @options.dataSource.setUser @model.cid, @model.toJSON(), (err, user) =>
+        @options.dataSource.updateUser @model.cid, @model.toJSON(), (err, user) =>
           @options.vent.trigger 'login', user
 
     if action

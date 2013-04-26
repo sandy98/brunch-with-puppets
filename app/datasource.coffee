@@ -33,12 +33,12 @@ class DataSource
       cb msg, null
     return msg 
  
-  addUser: (user, cb) => 
+  insertUser: (user, cb) => 
     @users.add user
     if cb
       cb null, user
 
-  setUser: (cid, userData, cb) =>
+  updateUser: (cid, userData, cb) =>
     len = @users.length
     for index in [0..(len - 1)]
       user = @users.at(index)
