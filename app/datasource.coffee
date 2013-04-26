@@ -11,7 +11,7 @@ class DataSource
     len = @users.length
     for index in [0..(len - 1)]
       user = @users.at(index)
-      if user.get('username').toLowerCase() is username.toLowerCase() or user.get('email').toLowerCase() is username.toLowerCase() and user.get('pwd') is pwd
+      if (user.get('username').toLowerCase() is username.toLowerCase() or user.get('email').toLowerCase() is username.toLowerCase()) and user.get('pwd') is pwd
         if cb
           cb null, user
         return user
