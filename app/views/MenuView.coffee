@@ -17,7 +17,10 @@ module.exports = class MenuView extends Backbone.Marionette.ItemView
 	setFakeUser: (userdata) =>
 	   #To be overridden by a call to the server to get real data in a production app. 
 	   @options.dataSource.getUser userdata.username, userdata.pwd, (err, user) =>
-	      if user then @model.set user.toJSON() else bootbox.alert err
+	      if user 
+	        @options.vent.trigger 'login', user 
+	      else 
+	        bootbox.alert err
 	       
 	initialize: =>
 	  @on 'render', =>
@@ -29,8 +32,3 @@ module.exports = class MenuView extends Backbone.Marionette.ItemView
 	    @$('ul.nav>li').removeClass 'active'
 	    @$("li>a[href='##{where.href}']").parent().addClass 'active'
 	    
-	  @model.on 'change', =>
-	    if @model.get 'username'
-	      @options.vent.trigger 'login', @model
-	    else
-	      @options.vent.trigger 'logout', @model 

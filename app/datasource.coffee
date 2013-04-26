@@ -20,6 +20,19 @@ class DataSource
       cb msg, null
     return msg 
  
+  getUserByCid: (cid, cb) =>
+    len = @users.length
+    for index in [0..(len - 1)]
+      user = @users.at(index)
+      if user.cid is cid
+        if cb
+          cb null, user
+        return user
+    if cb
+      msg = 'Cid not found'
+      cb msg, null
+    return msg 
+ 
   addUser: (user, cb) => 
     @users.add user
     if cb

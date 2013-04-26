@@ -4,12 +4,10 @@ User = require 'models/user'
 
 
 class Application extends Backbone.Marionette.Application
-    logout: =>
-        @user.set username: '', fullname: '', pwd: ''
-        
+
     initialize: =>
 
-        GenericPopupView = require 'views/GenericPopupView'
+        UserItemView = require 'views/UserItemView'
 
         @dataSource = require './datasource'
 
@@ -18,24 +16,29 @@ class Application extends Backbone.Marionette.Application
         @vent.on 'login', (user) =>
           console.log "login: #{user.get('username')}"
           @user = user
+          @menuView.model = @user
           @layout.menu.show @menuView
 
-        @vent.on 'logout',(user)  =>
+        @vent.on 'logout',  =>
           console.log 'logout'
-          @user = user
+          @user = new User
+          @menuView.model = @user
           @layout.menu.show @menuView
           
         @vent.on 'newuser', =>
-          #bootbox.alert "Time to sign up a new user..."
-          model = new Backbone.Model({title: 'New User', message: 'User sign up data goes here.'})
-          popupView = new GenericPopupView model: model
+          #model = new Backbone.Model({title: 'New User', message: 'User sign up data goes here.'})
+
+          popupView = new UserItemView vent: @vent, model: new User, dataSource: @dataSource, mode: 'insert'
           @layout.popup.show popupView
-          #$(@layout.popup.el).modal()
+
+        @vent.on 'edituser', =>
+          popupView = new UserItemView vent: @vent, model: @user, dataSource: @dataSource, mode: 'update'
+          @layout.popup.show popupView
 
         @on("initialize:after", (options) =>
             Backbone.history.start()
             # Freeze the object
-            Object.freeze? @
+            #Object.freeze? @
         )
 
         @addInitializer( (options) =>

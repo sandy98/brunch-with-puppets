@@ -5,11 +5,12 @@ module.exports = class GenericPopupView extends Backbone.Marionette.ItemView
   
   initialize: =>
     @on 'render', @on_render
- 
+    #@on 'click', @$('a'), @on_btnclick
+
   on_btnclick: (ev) =>
     console.log "Clicked on a link"
     ev.preventDefault?()
-    @$('div.modal').modal('hide')        
+    @$('div.modal').modal('hide')
     
   on_render: (ev) =>
     console.log 'GenericPopupView on render'

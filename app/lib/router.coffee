@@ -11,6 +11,7 @@ module.exports = class Router extends Backbone.Router
           'about':    'about'
           'dologout': 'logout'
           'newuser':  'newuser'
+          'edituser': 'edituser'
 
         home: =>
           hv = new HomeView()
@@ -30,10 +31,13 @@ module.exports = class Router extends Backbone.Router
           application.layout.content.show(av)
 
         logout: =>
-          application.logout()
+          application.vent.trigger 'logout'
           @navigate application.menuView.currentRoute, trigger: true
 
         newuser: =>
-          console.log "new user coming soon..."
           application.vent.trigger 'newuser'
+          @navigate application.menuView.currentRoute, trigger: true
+
+        edituser: =>
+          application.vent.trigger 'edituser'
           @navigate application.menuView.currentRoute, trigger: true
