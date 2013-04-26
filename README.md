@@ -30,7 +30,7 @@ Versions of software the skeleton uses:
 * MarionetteJS 1.0.2
 
 # Legal stuff (MIT License)
-Template is Copyright (c) 2013 Domingo Ernesto Savoretti.  We assume no rights or liablities for the code contained.  
+Template is Copyright (c) 2013 Domingo Ernesto Savoretti.  The author assumes no rights or liablities for the code contained.  
 All libraries are owned and licensed by the owners.  Use at your own risk.
 
 Distributed under MIT license.
