@@ -1,18 +1,36 @@
 <div class="modal hide fade">
   <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h2></h2>
+      <h3></h3>
   </div>
   <div class="modal-body">
-    <form class="form-vertical well well-shadow span4">
+    <form class="form-horizontal well well-shadow">
       <fieldset>
         <legend>User Data</legend>
-        <label>Username</label>
-        <input type="text" placeholder="username" id="txt-username" value="{{ username }}" />
-        <label>Full Name</label>
-        <input type="text" placeholder="full name" id="txt-fullname" value="{{ fullname }}" />
-        <label>eMail</label>
-        <input type="text" placeholder="email" id="txt-email" value="{{ email }}" />
+        <div class="control-group">
+          <label class="control-label" for="txt-username">Username</label>
+          <div class="controls">
+            <input type="text" placeholder="username" id="txt-username" value="{{ username }}" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="txt-fullname">Full Name</label>
+          <div class="controls">
+            <input type="text" placeholder="full name" id="txt-fullname" value="{{ fullname }}" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="txt-email">eMail</label>
+          <div class="controls">
+            <input type="text" placeholder="email" id="txt-email" value="{{ email }}" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="txt-pwd">Password</label>
+          <div class="controls">
+            <input type="password" placeholder="password" id="txt-pwd" value="{{ pwd }}" />
+          </div>
+        </div>
       </fieldset>
     </form>
   </div>

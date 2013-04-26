@@ -8,9 +8,9 @@ module.exports = class MenuView extends Backbone.Marionette.ItemView
 	  'submit': 'submit'
 	
 	submit: (ev) =>
-	  ev.preventDefault()
+	  ev.preventDefault?()
 	  return false unless @$('.username-input').val() and @$('.pwd-input').val()
-	  console.log 'submit user data'
+	  #console.log 'submit user data'
 	  @setFakeUser username: @$('.username-input').val(), pwd: @$('.pwd-input').val()
 	  false
 	
@@ -25,6 +25,7 @@ module.exports = class MenuView extends Backbone.Marionette.ItemView
 	initialize: =>
 	  @on 'render', =>
 	    @$("li>a[href='##{@currentRoute}']").parent().addClass 'active'
+	    @$('a[href="#newuser"], a[href="#edituser"]').tooltip placement: 'bottom'
 	    
 	  @options.vent.on 'navigation', (where) =>
 	    @currentRoute = where.href

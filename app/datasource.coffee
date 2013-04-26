@@ -3,7 +3,7 @@
 class DataSource
   users: new Backbone.Collection [
     new Backbone.Model {username: 'lar-gand', fullname: 'Mon-El', pwd: 'daxamite', email: 'daxam@gmail.com'}
-    new Backbone.Model {username: 'kal-el', fullname: 'Superboy', pwd: 'kriptonian', email: 'kripton@gmail.com'}
+    new Backbone.Model {username: 'kal-el', fullname: 'Superboy', pwd: 'kryptonian', email: 'krypton@gmail.com'}
     new Backbone.Model {username: 'rokk-krinn', fullname: 'Cosmic Boy', pwd: 'braalian', email: 'braal@gmail.com'}
   ]
   
@@ -11,7 +11,7 @@ class DataSource
     len = @users.length
     for index in [0..(len - 1)]
       user = @users.at(index)
-      if (user.get('username').toLowerCase() is username.toLowerCase()) and (user.get('pwd') is pwd)
+      if user.get('username').toLowerCase() is username.toLowerCase() or user.get('email').toLowerCase() is username.toLowerCase() and user.get('pwd') is pwd
         if cb
           cb null, user
         return user

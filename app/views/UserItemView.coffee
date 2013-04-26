@@ -9,9 +9,9 @@ module.exports = class UserItemView extends GenericPopupView
     #Very important call to super(), otherwise modal won't get called
     GenericPopupView::on_render.apply @, arguments
     if @options.mode is 'insert'
-      @$('div.modal-header>h2').text "New User"
+      @$('div.modal-header>h3').text "New User"
     else if @options.mode is 'update'
-      @$('div.modal-header>h2').text "Edit user #{@model.get('fullname')}"
+      @$('div.modal-header>h3').text "Edit user #{@model.get('fullname')}"
 
 
   on_btnclick: (ev) =>
@@ -23,8 +23,8 @@ module.exports = class UserItemView extends GenericPopupView
       action = 'cancel'
 
     if action is 'save'
-      return unless @$('#txt-username').val() and @$('#txt-fullname').val() and @$('#txt-email').val()
-      @model.set username: @$('#txt-username').val(), fullname: @$('#txt-fullname').val(), email: @$('#txt-email').val(), pwd: 'pwd' 
+      return unless @$('#txt-username').val() and @$('#txt-fullname').val() and @$('#txt-email').val() and @$('#txt-pwd').val()
+      @model.set username: @$('#txt-username').val(), fullname: @$('#txt-fullname').val(), email: @$('#txt-email').val(), pwd: @$('#txt-pwd').val() 
       if @options.mode is 'insert'
         @options.dataSource.addUser @model, (err, newuser) =>
           @options.vent.trigger 'login', newuser
