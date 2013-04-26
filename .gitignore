@@ -2,3 +2,4 @@ node_modules
 public
 tmp
 .idea
+npm-debug.log
