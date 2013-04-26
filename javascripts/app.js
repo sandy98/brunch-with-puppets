@@ -213,7 +213,7 @@ window.require.register("datasource", function(exports, require, module) {
         len = this.users.length;
         for (index = 0, _ref = len - 1; 0 <= _ref ? index <= _ref : index >= _ref; 0 <= _ref ? index++ : index--) {
           user = this.users.at(index);
-          if (user.get('username').toLowerCase() === username.toLowerCase() || user.get('email').toLowerCase() === username.toLowerCase() && user.get('pwd') === pwd) {
+          if ((user.get('username').toLowerCase() === username.toLowerCase() || user.get('email').toLowerCase() === username.toLowerCase()) && user.get('pwd') === pwd) {
             if (cb) cb(null, user);
             return user;
           }
