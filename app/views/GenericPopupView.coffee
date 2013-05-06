@@ -3,16 +3,13 @@ template = require 'views/templates/genericpopupview'
 module.exports = class GenericPopupView extends Backbone.Marionette.ItemView
   template: template
   
-  initialize: =>
-    @on 'render', @on_render
-    #@on 'click', @$('a'), @on_btnclick
-
-  on_btnclick: (ev) =>
+  onBtnClick: (ev) =>
     console.log "Clicked on a link"
     ev.preventDefault?()
     @$('div.modal').modal('hide')
     
-  on_render: (ev) =>
-    console.log 'GenericPopupView on render'
-    @$('a').on 'click', @on_btnclick
+  render: =>
+    Backbone.Marionette.ItemView::render.apply @, arguments
+    console.log 'GenericPopupView render'
+    @$('a').on 'click', @onBtnClick
     @$('div.modal').modal()
