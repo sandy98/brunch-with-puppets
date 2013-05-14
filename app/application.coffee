@@ -5,6 +5,8 @@ User = require 'models/user'
 
 class Application extends Backbone.Marionette.Application
 
+    @VERSION: '0.1.1'
+
     initialize: =>
 
         UserItemView = require 'views/UserItemView'
@@ -12,6 +14,19 @@ class Application extends Backbone.Marionette.Application
         @dataSource = require './datasource'
 
         @user = new User
+
+        @vent.on 'navigation', (where) =>
+          console.log "@#{where.href}@"
+          if @user.get 'username'
+            @layout.content.show where.view
+            @menuView.highlight where
+          else
+            if where.href is 'contents'
+              @router.navigate '', trigger: true
+              bootbox.alert 'Must be logged in to access contents.'
+            else
+              @layout.content.show where.view
+              @menuView.highlight where
 
         @vent.on 'login', (user) =>
           console.log "login: #{user.get('username')}"
@@ -24,7 +39,8 @@ class Application extends Backbone.Marionette.Application
           @user = new User
           @menuView.model = @user
           @layout.menu.show @menuView
-          
+          @router.navigate '', trigger: true
+
         @vent.on 'newuser', =>
           #model = new Backbone.Model({title: 'New User', message: 'User sign up data goes here.'})
 
